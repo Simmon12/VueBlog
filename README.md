@@ -33,7 +33,7 @@
 * 访问主页： localhost:8080/home
 * 登录密码： username：admin， password：admin
 
-###　更新日志
+### 更新日志
 1. 2017/9/2  &nbsp;&nbsp; &nbsp; vueBlog1.0.0基础版
 2. 2017/9/8  &nbsp;&nbsp; &nbsp; vueBlog1.0.1
 改进了以下几个地方：
