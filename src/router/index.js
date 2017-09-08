@@ -17,6 +17,9 @@ let router = new Router({
   mode: 'history',     // 如果不配置mode，就会使用默认的hash模式，该模式下会将路径格式化为#！开头
   routes: [
     {
+      path: '/', redirect: '/home'
+    },
+    {
       path: '/home',
       component: home,
       children: [

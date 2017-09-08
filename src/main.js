@@ -6,7 +6,8 @@ import router from './router'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import highlight from 'highlight.js'
+import highlight from 'highlight.js';
+import 'normalize.css/normalize.css'
 Vue.use(ElementUI);
 
 

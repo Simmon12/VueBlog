@@ -7,11 +7,12 @@
       </div>
       <div class="nav-main">
         <p class="name">荔枝淼淼</p>
-        <small class="subtitle">Never stop trying !!</small>
-        <div class="homePage"><router-link to="/home">主页</router-link></div>
         <div class="icon"><a href="https://github.com/Simmon12" target="_blank"><img src="./../../assets/github.png"></a></div>
+        <small class="subtitle">Never stop trying !!</small>
+        <router-link to="/home"><div class="homePage">主页</div></router-link>
+
         <div class="link">
-          <span class="all-article">所有文章/</span><span class="about-me"><a href="/admin">关于我/</a></span><span class="relative-link"><a href="/login">管理</a></span>
+          <span class="all-article"><router-link to="/home/articleList"> 所有文章/</router-link></span><span class="about-me"><a href="/admin">关于我/</a></span><span class="relative-link"><a href="/login">管理</a></span>
         </div>
 
       </div>
@@ -42,8 +43,9 @@
 
 /* nav-side*/
 aside {
-  flex: 0 0 320px;
-  width: 320px;
+  flex: 0 0 20%;
+  width: 20%;
+  min-width: 150px;
   height: 100%;
   font-weight: bold;
 }
@@ -112,6 +114,9 @@ aside {
   color: #696969;
   line-height: 35px;
 }
+.nav-main .homePage  a {
+  color: #696969;
+}
 .nav-main .homePage a:hover {
   color: #c8cbe3;
 }
@@ -125,11 +130,73 @@ aside {
   color: #999;
 }
 .nav-main .icon {
+  margin-top: 5px;
   text-align: center;
 }
 
 /** nav-side end*/
 
+
+@media only screen and (max-width: 50em) {
+  .main {
+    display: block;
+    background: #eaeaea;
+    overflow:scroll;
+  }
+  .right-side {
+    display: block;
+    overflow-y: hidden;
+  }
+  aside {
+    display: block;
+    width: 100%;
+    height: 280px;
+  }
+  .top {
+    height: 100px;
+  }
+  .l-circle {
+    bottom: -40px;
+  }
+  .s-circle {
+    bottom: -37px;
+  }
+  .nav-main {
+    margin-top: 0;
+    padding-top: 20px;
+
+    background: #eaeaea;
+  }
+  .nav-main .name {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  .nav-main .subtitle {
+    margin-top: 0px;
+
+  }
+  .nav-main .icon {
+    display: none;
+  }
+  .nav-main .homePage {
+    margin: 20px auto;
+    padding: 5px;
+    width: 50%;
+    background-color: #a0a0a0;
+    box-shadow: 0 0 4px #ccc;
+    cursor: pointer;
+    border-radius:5px;
+  }
+  .nav-main .homePage  {
+    color: white;
+  }
+  .nav-main .homePage a:hover {
+    color: white;
+  }
+  .nav-main .link {
+    display: none;
+  }
+}
 
 
 
@@ -146,12 +213,17 @@ aside {
 }
 .content {
   box-sizing: content-box;
-  max-width: 800px;
+  width: 60%;
   min-height: 670px;
   margin: 10px auto;
   padding-top: 20px;
   margin-bottom: 20px;
-
+}
+@media only screen and (max-width: 50em) {
+  .content-wrapper {
+    width: 96%;
+    margin: 20px auto;
+  }
 }
 
 </style>
