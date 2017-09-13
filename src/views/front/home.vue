@@ -20,7 +20,9 @@
     <div class="right-side">
        <div class="content-wrapper">
          <div class="content">
-           <router-view></router-view>
+            <keep-alive>
+              <router-view></router-view>
+            </keep-alive>
          </div>
        </div>
     </div>
