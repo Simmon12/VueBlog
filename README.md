@@ -40,3 +40,5 @@
 * 当访问localhost:8080时，页面会直接重定向到localhost:8080/home。
 * 引入了normalize.css来消除不同的浏览器因自身默认的样式带来的差异。
 * 使用媒介查询@media，实现简单的响应式。
+3. 2019/1/29 &nbsp;&nbsp; &nbsp; vueBlog1.0.2
+- 增加了注册功能
