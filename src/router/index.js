@@ -10,6 +10,7 @@ import articlePost from '@/views/back/articlePost'
 import userInfo from '@/views/back/userInfoSet'
 
 import login from '@/views/back/login'
+import register from '@/views/back/register'
 
 Vue.use(Router)
 
@@ -28,6 +29,10 @@ let router = new Router({
         { path: 'article/?id=:id',
           name: 'postDetail',
           component: postDetail
+        },
+        {
+          path: 'userInfo',
+          component: userInfo
         }
       ]
     },
@@ -52,6 +57,10 @@ let router = new Router({
     {
       path: '/login',
       component: login
+    },
+    {
+      path: '/register',
+      component: register
     }
 
   ]
@@ -63,9 +72,12 @@ router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)) {              // 判断该路由是否需要登录权限
     console.log("wo bei yongle ");
     let user = JSON.parse(window.sessionStorage.getItem('access-user'))
+    // alert("user is  ss ", user);
     if(!user) {
+      // alert(user);
       next({path: '/login'})
     } else {
+      // alert("ss",user);
       next()
     }
   } else {

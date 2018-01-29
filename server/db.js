@@ -14,10 +14,11 @@ const ArticleSchema = new mongoose.Schema({
 
 /** User **/
 const UserSchema = new mongoose.Schema({
-  name: {
+  account: {
     unique: true,
     type: String
   },
+  // account: String,
   password: String,
   // normal admin whose role < 10 while super admin whose role >=10
   role: {

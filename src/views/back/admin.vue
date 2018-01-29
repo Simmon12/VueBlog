@@ -6,9 +6,9 @@
       <el-col :span="20" class="user-setting">
          <el-dropdown trigger="click">
            <span class="el-dropdown-link" style="color: white; font-weight:bold; font-size: 16px;">用户设置&nbsp;<i class="el-icon-caret-bottom el-icon--right"style="padding-left:10px"></i></span>
-           <el-dropdown-menu slot="dropdown">
-             <el-dropdown-item style="color:#8b93a1; font-size:16px;">个人信息</el-dropdown-item>
-             <el-dropdown-item style="color:#8b93a1; font-size: 16px;">退出登录</el-dropdown-item>
+           <el-dropdown-menu slot="dropdown" @select="userSelect">
+             <el-dropdown-item style="color:#8b93a1; font-size:16px;" index="1">个人信息</el-dropdown-item>
+             <el-dropdown-item style="color:#8b93a1; font-size: 16px;"index="2">退出登录</el-dropdown-item>
            </el-dropdown-menu>
          </el-dropdown>
       </el-col>
@@ -23,6 +23,7 @@
             <el-menu-item index="2"><i class="el-icon-edit"></i>发布文章</el-menu-item>
             <el-menu-item index="3"><i class="el-icon-setting"></i>修改信息</el-menu-item>
             <el-menu-item index="4"><i class="el-icon-caret-left"></i>退出登录</el-menu-item>
+            <el-menu-item index="5"><i class="el-icon-document"></i>返回博客页</el-menu-item>
          </el-menu>
       </aside>
       <section class="content-container">
@@ -34,9 +35,9 @@
           </el-col>
           <el-col :span="24" class="content-wrapper">
             <transition name="fade" mode="out-in">
-              <keep-alive>
+              <!-- <keep-alive> -->
                 <router-view></router-view>
-              </keep-alive>
+              <!-- </keep-alive> -->
             </transition>
           </el-col>
         </div>
@@ -89,6 +90,27 @@
                        this.$router.push('/home');
                      }
                  })
+            break;
+          case '5':
+            this.$router.push('/home');
+        }
+
+      },
+      userSelect(key, keyPath) {
+        switch(key) {
+          case '1':
+            this.$router.push('/admin/userInfo');
+            break;
+          case '2':
+            console.log("tuichu");
+            axios.get('/api/user/logout')
+             .then((res) => {
+                 if(res.data.code === 200) {
+                   console.log(res.data.message);
+                   window.sessionStorage.removeItem('access-user');
+                   this.$router.push('/home');
+                 }
+             })
         }
 
       }

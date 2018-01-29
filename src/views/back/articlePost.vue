@@ -74,7 +74,7 @@
                             message: "文章更新成功",
                             type: 'success'
                         });
-                        this.$router.push('/admin');
+                        this.$router.push('/admin/adminList');
                     })
                 } else {
                     axios.post('/api', {
@@ -86,7 +86,7 @@
                             message: "文章发布成功",
                             type: 'success'
                         });
-                        this.$router.push('/admin')
+                        this.$router.push('/admin/adminList')
                     })
                 }
 

@@ -54,6 +54,35 @@ router.route('/api/:post_id')
       })
 
 
+ router.route('/api/user/register')
+   .post((req, res) => {
+      let _user = req.body.user;
+      let account = _user.account;
+      let password = _user.password;
+      db.Users.findOne({account: account}, (err, User) =>{
+        if (err) {
+          console.log(err)
+        }
+        if (User) {
+          console.log("用户名已存在")
+          return res.json({
+            "code": 400,
+            "message": "用户名已存在",
+          })
+        } else {
+            console.log("sdf", req.body.user.account);
+            new db.Users(req.body.user).save((err) => {
+            if(err) console.log(err);
+              res.json({
+                "code": 200,
+                message: '注册成功',
+              });
+          })
+        }
+      });
+   })
+
+
 router.route('/api/user/login')
    .post((req, res) => {
       let _user = req.body.user;
@@ -61,7 +90,7 @@ router.route('/api/user/login')
       let password = _user.password;
 
 
-      db.Users.findOne({name: name}, (err, user) =>{
+      db.Users.findOne({account: name}, (err, user) =>{
 
           if(err) {
             return res.json({

@@ -12,7 +12,7 @@
         <router-link to="/home"><div class="homePage">主页</div></router-link>
 
         <div class="link">
-          <span class="all-article"><router-link to="/home/articleList"> 所有文章/</router-link></span><span class="about-me"><a href="/admin">关于我/</a></span><span class="relative-link"><a href="/login">管理</a></span>
+          <span class="all-article"><router-link to="/home/articleList"> 所有文章/</router-link></span><span class="about-me"><router-link to="/home/userInfo">关于我/</router-link></span><span class="relative-link"><a href="/admin">管理</a></span>
         </div>
 
       </div>
