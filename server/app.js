@@ -7,6 +7,7 @@ let cookieParser = require('cookie-parser');
 let session = require('express-session');
 let MongoStore = require('connect-mongo')(session);
 let dbUrl = 'mongodb://localhost/lizhiBlog';
+let history = require('connect-history-api-fallback');
 //连接mongodb数据库
 mongoose.connect(dbUrl);
 mongoose.connection.on("connected", ()=> {
@@ -37,5 +38,6 @@ app.use(session({
 
 
 app.use('/', router);
+app.use(history());
 app.listen(3000);
 
