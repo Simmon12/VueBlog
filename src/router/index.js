@@ -26,7 +26,7 @@ let router = new Router({
       children: [
         { path: '', component: list},
         { path: 'articleList', component: list},
-        { path: 'article/?id=:id',
+        { path: 'article/:id',
           name: 'postDetail',
           component: postDetail
         },
@@ -48,7 +48,7 @@ let router = new Router({
         { path: 'userInfo', component: userInfo },
         { path: 'articlePost', component: articlePost},
         {
-          path: 'articlePost/?id=:id',
+          path: 'article/:id',
           name: 'editArticle',
           component: articlePost
         }

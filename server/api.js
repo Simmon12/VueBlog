@@ -22,7 +22,7 @@ router.route('/api')
         })
       })
 
-router.route('/api/:post_id')
+router.route('/api/article/:post_id')
       .get((req, res) => {
         db.Articles.findById(req.params.post_id, (err, post) => {
           if(err) console.log(err);

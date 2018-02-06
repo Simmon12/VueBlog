@@ -47,7 +47,7 @@
     methods: {
       getArticleDetail() {
         let id = this.$route.params.id;
-        axios.get(`/api/${id}`)
+        axios.get(`/api/article/${id}`)
         .then(res => {
           this.post = res.data;
           this.post.date = moment(objectToTimestamp(this.post._id)).format('YYYY-MM-DD');

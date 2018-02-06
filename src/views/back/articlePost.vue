@@ -43,7 +43,7 @@
 
             if(this.$route.params.id) {
                 const id = this.$route.params.id;
-                axios.get(`/api/${id}`)
+                axios.get(`/api/article/${id}`)
                 .then( res => {
                     this.postTitle = res.data.title;
                     this.btnName = '更新文章';
@@ -63,7 +63,7 @@
                 };
                 if(this.$route.params.id) {
                     const id = this.$route.params.id;
-                    axios.put(`/api/${id}`, {
+                    axios.put(`/api/article/${id}`, {
                         title: this.postTitle,
                         content: this.postContent,
                         state: 'publish'
