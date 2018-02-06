@@ -59,7 +59,7 @@
         })
         .then(()=> {
           this.listLoading = true;
-          axios.delete(`/api/${id}`)
+          axios.delete(`/api/article/${id}`)
             .then(()=> {
               this.listLoading = false;
               this.$notify({

@@ -32,10 +32,13 @@
         axios.get('/api')
         .then(res => {
           this.posts = res.data;
+          this.posts = Array.prototype.slice.call(res.data);
+          console.log(typeof(this.posts));
           this.posts.forEach(post => {
             post.date = moment(objectidToTimestamp(post._id)).format('YYYY-MM-DD');
           })
           this.posts.reverse();
+          console.log(this.posts);
         })
       },
       getDetail(id) {

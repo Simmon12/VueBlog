@@ -8,6 +8,8 @@ let session = require('express-session');
 let MongoStore = require('connect-mongo')(session);
 let dbUrl = 'mongodb://localhost/lizhiBlog';
 let history = require('connect-history-api-fallback');
+let path = require('path');
+let fs = require('fs');
 //连接mongodb数据库
 mongoose.connect(dbUrl);
 mongoose.connection.on("connected", ()=> {
@@ -18,6 +20,14 @@ mongoose.connection.on("disconnected", ()=>{
 });
 mongoose.connection.on("error", ()=>{
   console.log("mongodb connected error");
+})
+
+// 访问静态资源文件，这里是访问所有dist目录下的静态资源文件
+app.use(express.static(path.join(__dirname, '../dist')));
+// 因为是单页应用，所有请求都走/dist/index.html
+app.get('*', function(req, res) {
+    const html = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8')
+    res.send(html)
 })
 
 app.use(bodyParser.urlencoded({ extended: true }));
