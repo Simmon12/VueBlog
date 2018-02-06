@@ -11,7 +11,7 @@ import userInfo from '@/views/back/userInfoSet'
 
 import login from '@/views/back/login'
 import register from '@/views/back/register'
-
+import NotFoundComponent from '@/views/front/NotFound'
 Vue.use(Router)
 
 let router = new Router({
@@ -20,6 +20,7 @@ let router = new Router({
     {
       path: '/', redirect: '/home'
     },
+    { path: '*', component: NotFoundComponent},
     {
       path: '/home',
       component: home,
